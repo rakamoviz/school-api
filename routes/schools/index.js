@@ -53,7 +53,7 @@ module.exports = function init(sequelize, models) {
   //and subsequently the recipients (associated with each orders)
   router.delete('/:schoolId', function (req, res) {
     sequelize.transaction({
-      isolationLevel: Sequelize.Transaction.ISOLATION_LEVELS.SERIALIZABLE
+      isolationLevel: Sequelize.Transaction.ISOLATION_LEVELS.READ_COMMITTED
     }, (t) => {
       const schoolId = req.params.schoolId;
 
